@@ -30,4 +30,21 @@ public class BinarySearch {
 
         return -1;
     }
+
+    public static int binarySearchBetter(int[] array, int target) {
+        // right 现在是边界，不是查找目标
+        int left = 0, right = array.length;
+
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (target < array[mid]) {
+                right = mid;
+            } else if (target > array[mid]) {
+                left = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
+    }
 }
